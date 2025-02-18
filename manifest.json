@@ -1,0 +1,21 @@
+{
+    "manifest_version": 3,
+    "name": "Generador y Compartir QR",
+    "version": "1.0",
+    "description": "Extensión para generar y compartir multimedia mediante códigos QR",
+    "permissions": ["contextMenus", "storage", "tabs", "activeTab"],
+    "background": {
+      "service_worker": "/js/background.js"
+    },
+    "host_permissions": ["https://*/*"],
+    "action": {
+      "default_popup": "popup.html",
+      "default_icon": "/assets/icon.png"
+    },
+    "icons": {
+      "16": "/assets/icon.png",
+      "48": "/assets/icon.png",
+      "128": "/assets/icon.png"
+    }
+  }
+  
