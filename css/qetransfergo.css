@@ -1,0 +1,80 @@
+html {
+    box-sizing: border-box;
+    padding: 0;
+    border: 0;
+    margin: 0;
+    list-style-type: none;
+    list-style: none;
+    text-decoration: none;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit !important;
+    padding: inherit !important;
+    margin: inherit !important;
+    border: inherit !important;
+    list-style-type: inherit !important;
+    list-style: inherit !important;
+    text-decoration: inherit !important;
+}
+
+:root {
+    font-family: "Nunito", Arial, sans-serif;
+    line-height: 1.5;
+    font-weight: 400;
+    font-optical-sizing: auto;
+    font-style: normal;
+
+    color-scheme: light dark;
+
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    min-width: 360px;
+    min-height: 100vh;
+}
+
+@media (prefers-color-scheme: light) {
+    :root {
+        color: #213547;
+        background-color: #ffffff;
+    }
+
+    .text-muted {
+        color: #bebebe !important;
+    }
+
+    .text-apa {
+        color: #292929 !important;
+        font-family: 'Times New Roman', Times, serif;
+        font-size: 14;
+        line-height: 1.5;
+        font-weight: 400;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        color: rgba(255, 255, 255, 0.87);
+        background-color: #242424;
+    }
+
+    .text-muted {
+        color: #999999 !important;
+    }
+
+    .text-apa {
+        color: #ffffff !important;
+        font-family: 'Times New Roman', Times, serif;
+        font-size: 14;
+        line-height: 1.5;
+        font-weight: 400;
+    }
+}
+
