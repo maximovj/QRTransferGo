@@ -1,27 +1,22 @@
 html {
     box-sizing: border-box;
-    padding: 0;
-    border: 0;
-    margin: 0;
-    list-style-type: none;
-    list-style: none;
-    text-decoration: none;
 }
 
 *,
 *::before,
 *::after {
-    box-sizing: inherit !important;
-    padding: inherit !important;
-    margin: inherit !important;
-    border: inherit !important;
-    list-style-type: inherit !important;
-    list-style: inherit !important;
-    text-decoration: inherit !important;
+    box-sizing: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border: 0 !important;
+    list-style-type: 0 !important;
+    list-style: 0 !important;
+    text-decoration: 0 !important;
 }
 
 :root {
     font-family: "Nunito", Arial, sans-serif;
+    font-size: 17px;
     line-height: 1.5;
     font-weight: 400;
     font-optical-sizing: auto;
@@ -36,8 +31,20 @@ html {
 }
 
 body {
-    min-width: 360px;
-    min-height: 100vh;
+    min-width: 360px !important;
+    min-height: 100vh !important;
+}
+
+div.container {
+    padding: 0.25rem !important;
+    margin: 0.25rem !important;
+    width: 360px !important;
+}
+
+h1.title-app {
+    color: #bebebe !important;
+    text-align: center;
+    font-size: 1.4rem;
 }
 
 @media (prefers-color-scheme: light) {
