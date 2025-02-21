@@ -24,22 +24,39 @@
     <title>QRTransferGo</title>
 </head>
 <body>
-    <h1>QRTransferGo</h1>
-    <h2><span class="text-muted">Lorem ipsum</span>, dolor sit amet consectetur...</h2>
-    <h3>Lorem ipsum dolor sit amet...</h3>
-    <hr />
-    <caption>
-        <img src="https://picsum.photos/200/300" alt="picsum.photos" width="200" />
-        <legend><span class="text-apa">Lorem ipsum dolor sit.</span></legend>
-    </caption>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis nulla, aspernatur sapiente nisi soluta odio consequatur, deserunt natus iure possimus facere unde dignissimos delectus reiciendis quisquam animi? Accusantium, beatae aut.</p>
-    <ul>
-        <li>Lorem #1</li>
-        <li>Lorem #2</li>
-        <li>Lorem #3</li>
-        <li>Lorem #4</li>
-        <li>Lorem #5</li>
-        <li>Lorem #6</li>
-    </ul>
+    <div class="container">
+        <div style="display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 0.5rem !important;">
+            <img src="/assets/icon.png" alt="icon.png" width="64">
+            <h1 class="title-app">QRTransferGo</h1>
+        </div>
+        
+        <p style="margin-bottom: 0.5rem !important;">Comporte información de manera rápida usando <span class="text-muted">QRTransferGo</span>, mediante un código de QR.</p>
+        
+        <textarea 
+            name="prompt" 
+            id="prompt" 
+            style="padding: 4px !important; border: 2px solid #ccc !important; border-radius: 2px; width: 90%; height: 120px; margin: auto !important; display: block; margin-block: 0.5rem !important;"
+            placeholder="Ingrese un texto, enlace, correo electrónico, etc. para compartir información mediante QR"
+        ></textarea> 
+        
+        <div style="display: flex !important; flex-direction: row; justify-content: flex-start; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem !important;">
+            <button style="padding: 4px 8px !important;border-radius: 4px;background-color:#30c751;color: white; ">Generar QR</button>
+            <button style="padding: 4px 8px !important;border-radius: 4px;background-color:#27afca;color: white; ">Descargar QR</button>
+        </div>
+
+        <div style="display: flex !important; flex-direction: row; justify-content: space-between; align-items: center; margin-bottom: 0.5rem !important;">
+            <p><span class="text-muted">Historial</span></p>
+            <button style="padding: 4px 8px !important;border-radius: 4px;background-color:#c75830;color: white; transform: scale(0.79);">Borrar historial</button>
+        </div>
+        
+        <ul>
+            <li>Lorem #1</li>
+            <li>Lorem #2</li>
+            <li>Lorem #3</li>
+            <li>Lorem #4</li>
+            <li>Lorem #5</li>
+            <li>Lorem #6</li>
+        </ul>
+    </div>
 </body>
 </html>
