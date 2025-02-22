@@ -1,87 +1,135 @@
-html {
-    box-sizing: border-box;
-}
-
-*,
-*::before,
-*::after {
-    box-sizing: 0 !important;
-    padding: 0 !important;
-    margin: 0 !important;
-    border: 0 !important;
-    list-style-type: 0 !important;
-    list-style: 0 !important;
-    text-decoration: 0 !important;
-}
-
-:root {
-    font-family: "Nunito", Arial, sans-serif;
-    font-size: 17px;
-    line-height: 1.5;
-    font-weight: 400;
-    font-optical-sizing: auto;
-    font-style: normal;
-
-    color-scheme: light dark;
-
-    font-synthesis: none;
-    text-rendering: optimizeLegibility;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
-
+/* Estilos generales (light) */
 body {
-    min-width: 360px !important;
-    min-height: 100vh !important;
-}
-
-div.container {
-    padding: 0.25rem !important;
-    margin: 0.25rem !important;
-    width: 360px !important;
-}
-
-h1.title-app {
-    color: #bebebe !important;
+    background-color: #f8f9fa;
+    color: #1e1e2e;
+    font-family: 'Nunito', sans-serif;
     text-align: center;
-    font-size: 1.4rem;
+    padding: 1rem;
+    width: 360px;
+    border-radius: 12px;
 }
 
-@media (prefers-color-scheme: light) {
-    :root {
-        color: #213547;
-        background-color: #ffffff;
-    }
-
-    .text-muted {
-        color: #bebebe !important;
-    }
-
-    .text-apa {
-        color: #292929 !important;
-        font-family: 'Times New Roman', Times, serif;
-        font-size: 14;
-        line-height: 1.5;
-        font-weight: 400;
-    }
+textarea {
+    background-color: #ffffff;
+    color: #333;
+    border-color: #007bff;
 }
 
+button {
+    background: #007bff;
+    padding: 10px 15px;
+    border-radius: 8px;
+    border: none;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    -webkit-transition: transform 0.2s ease;
+    -moz-transition: transform 0.2s ease;
+    -ms-transition: transform 0.2s ease;
+    -o-transition: transform 0.2s ease;
+}
+
+button:hover {
+    transform: scale(1.05);
+}
+
+button.generate-qr {
+    background: #007bff;
+}
+
+button.download-qr {
+    background: #ff914d;
+}
+
+button.remove-history {
+    background: #ff4d4d;
+    transform: scale(0.6);
+    -webkit-transform: scale(0.6);
+    -moz-transform: scale(0.6);
+    -ms-transform: scale(0.6);
+    -o-transform: scale(0.6);
+}
+
+button.remove-history:hover {
+    transform: scale(0.64);
+    -webkit-transform: scale(0.64);
+    -moz-transform: scale(0.64);
+    -ms-transform: scale(0.64);
+    -o-transform: scale(0.64);
+}
+
+/* Historial */
+.historial {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.historial p {
+    color: #555;
+    font-weight: 600;
+    margin: 0;
+}
+
+.historial-lista {
+    background: #f1f1f1;
+    padding: 10px;
+    border-radius: 8px;
+    list-style: none;
+    margin: 0;
+    text-align: left;
+}
+
+.historial-lista li {
+    padding: 5px;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Dark mode */
 @media (prefers-color-scheme: dark) {
-    :root {
-        color: rgba(255, 255, 255, 0.87);
-        background-color: #242424;
+    body {
+        background-color: #1e1e2e;
+        color: #f8f9fa;
     }
 
-    .text-muted {
-        color: #999999 !important;
+    textarea {
+        background-color: #2b2b3a;
+        color: #ffffff;
+        border-color: #00d4ff;
     }
 
-    .text-apa {
-        color: #ffffff !important;
-        font-family: 'Times New Roman', Times, serif;
-        font-size: 14;
-        line-height: 1.5;
-        font-weight: 400;
+    .historial p {
+        color: #bbbbbb;
     }
+
+    .historial-lista {
+        background: #2b2b3a;
+    }
+
+    .historial-lista li {
+        border-bottom: 1px solid #3a3a4a;
+    }
+
+    button.generate-qr {
+        background: #3a3a4a;
+        border: 2px solid #007bff;
+    }
+    
+    button.download-qr {
+        background: #3a3a4a;
+        border: 2px solid #ff914d;
+    }
+    
+    button.remove-history {
+        background: #3a3a4a;
+        border: 2px solid #ff4d4d;
+        transform: scale(0.6);
+        -webkit-transform: scale(0.6);
+        -moz-transform: scale(0.6);
+        -ms-transform: scale(0.6);
+        -o-transform: scale(0.6);
+    }
+    
 }
-
