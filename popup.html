@@ -41,14 +41,10 @@
         
         <!-- Botones -->
         <div style="display: flex; justify-content: center; align-items: center; gap: 0.5rem; margin-bottom: 1rem;">
-            <button style="padding: 10px 15px; border-radius: 8px; border: none; background: #007bff; color: white; font-weight: bold; cursor: pointer; transition: transform 0.2s ease;" 
-                onmouseover="this.style.transform='scale(1.05)'" 
-                onmouseout="this.style.transform='scale(1)'">
+            <button class="btn generate-qr">
                 Generar QR
             </button>
-            <button style="padding: 10px 15px; border-radius: 8px; border: none; background: #ff914d; color: white; font-weight: bold; cursor: pointer; transition: transform 0.2s ease;" 
-                onmouseover="this.style.transform='scale(1.05)'" 
-                onmouseout="this.style.transform='scale(1)'">
+            <button class="btn download-qr">
                 Descargar QR
             </button>
         </div>
@@ -56,7 +52,7 @@
         <!-- Historial -->
         <div class="historial">
             <p>Historial</p>
-            <button>Borrar historial</button>
+            <button class="btn remove-history">Borrar historial</button>
         </div>
         
         <!-- Lista de historial -->

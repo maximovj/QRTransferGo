@@ -16,12 +16,47 @@ textarea {
 }
 
 button {
-    background-color: #007bff;
+    background: #007bff;
+    padding: 10px 15px;
+    border-radius: 8px;
+    border: none;
     color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    -webkit-transition: transform 0.2s ease;
+    -moz-transition: transform 0.2s ease;
+    -ms-transition: transform 0.2s ease;
+    -o-transition: transform 0.2s ease;
 }
 
 button:hover {
-    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+button.generate-qr {
+    background: #007bff;
+}
+
+button.download-qr {
+    background: #ff914d;
+}
+
+button.remove-history {
+    background: #ff4d4d;
+    transform: scale(0.6);
+    -webkit-transform: scale(0.6);
+    -moz-transform: scale(0.6);
+    -ms-transform: scale(0.6);
+    -o-transform: scale(0.6);
+}
+
+button.remove-history:hover {
+    transform: scale(0.64);
+    -webkit-transform: scale(0.64);
+    -moz-transform: scale(0.64);
+    -ms-transform: scale(0.64);
+    -o-transform: scale(0.64);
 }
 
 /* Historial */
@@ -36,22 +71,6 @@ button:hover {
     color: #555;
     font-weight: 600;
     margin: 0;
-}
-
-.historial button {
-    padding: 8px 12px;
-    border-radius: 6px;
-    border: none;
-    background: #ff4d4d;
-    color: white;
-    font-weight: bold;
-    font-size: 0.85rem;
-    cursor: pointer;
-    transition: transform 0.2s ease;
-}
-
-.historial button:hover {
-    transform: scale(1.05);
 }
 
 .historial-lista {
@@ -81,15 +100,6 @@ button:hover {
         border-color: #00d4ff;
     }
 
-    button {
-        background-color: #00d4ff;
-        color: #000;
-    }
-
-    button:hover {
-        background-color: #007bff;
-    }
-
     .historial p {
         color: #bbbbbb;
     }
@@ -102,7 +112,24 @@ button:hover {
         border-bottom: 1px solid #3a3a4a;
     }
 
-    .historial button {
-        background: #ff4d4d;
+    button.generate-qr {
+        background: #3a3a4a;
+        border: 2px solid #007bff;
     }
+    
+    button.download-qr {
+        background: #3a3a4a;
+        border: 2px solid #ff914d;
+    }
+    
+    button.remove-history {
+        background: #3a3a4a;
+        border: 2px solid #ff4d4d;
+        transform: scale(0.6);
+        -webkit-transform: scale(0.6);
+        -moz-transform: scale(0.6);
+        -ms-transform: scale(0.6);
+        -o-transform: scale(0.6);
+    }
+    
 }
