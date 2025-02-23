@@ -31,14 +31,19 @@ document.getElementById("download-qr").addEventListener("click", () => {
 
 // Función para generar código QR
 function generateQRCode(text) {
-  document.getElementById("qr-code").innerHTML = "";
-  document.getElementById("qr-code").classList.add("d-inline-block");
-  new QRCode(document.getElementById("qr-code"), {
-    text: text,
-    width: 180,
-    height: 180,
-    correctLevel : QRCode.CorrectLevel.L,
-  });
+  try {
+    document.getElementById("qr-code").innerHTML = "";
+    document.getElementById("qr-code").classList.add("d-inline-block");
+    new QRCode(document.getElementById("qr-code"), {
+      text: text,
+      width: 90,
+      height: 90,
+      correctLevel : QRCode.CorrectLevel.L,
+    });
+  } catch (error) {
+    document.getElementById("qr-code").innerHTML = "Error en generar Código QR :'(";
+    document.getElementById("qr-code").classList.add("d-inline-block");
+  }
 
   setTimeout(() => {
     document.getElementById("download-qr").disabled = false;
@@ -53,7 +58,7 @@ function downloadQRCode() {
   const qrImage = qrCanvas.toDataURL("image/png");
   const link = document.createElement("a");
   link.href = qrImage;
-  link.download = "QR_Code.png";
+  link.download = "QRTransferGo_QR-Code.png";
   link.click();
 }
 
