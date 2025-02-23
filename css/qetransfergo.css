@@ -96,6 +96,28 @@ button.remove-history:hover {
     background-color: #ddd;
 }
 
+/* Estilo inicial del textarea */
+#qr-input {
+    padding: 10px;
+    border: 2px solid #007bff;
+    border-radius: 8px;
+    width: 90%;
+    height: 40px; /* Altura inicial */
+    background: #ffffff;
+    color: #333;
+    resize: none;
+    display: block;
+    margin: auto;
+    margin-bottom: 1rem;
+    transition: height 0.3s ease; /* Suaviza el cambio de tamaño */
+}
+
+/* Cuando el textarea está en foco */
+#qr-input:focus {
+    height: 90px; /* Altura cuando está en foco */
+    outline: none; /* Elimina el borde del foco predeterminado */
+}
+
 /* Código QR */
 div#qr-code img 
 {
