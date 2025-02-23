@@ -44,19 +44,19 @@ button.download-qr {
 
 button.remove-history {
     background: #ff4d4d;
-    transform: scale(0.6);
-    -webkit-transform: scale(0.6);
-    -moz-transform: scale(0.6);
-    -ms-transform: scale(0.6);
-    -o-transform: scale(0.6);
+    transform: scale(0.7);
+    -webkit-transform: scale(0.7);
+    -moz-transform: scale(0.7);
+    -ms-transform: scale(0.7);
+    -o-transform: scale(0.7);
 }
 
 button.remove-history:hover {
-    transform: scale(0.64);
-    -webkit-transform: scale(0.64);
-    -moz-transform: scale(0.64);
-    -ms-transform: scale(0.64);
-    -o-transform: scale(0.64);
+    transform: scale(0.74);
+    -webkit-transform: scale(0.74);
+    -moz-transform: scale(0.74);
+    -ms-transform: scale(0.74);
+    -o-transform: scale(0.74);
 }
 
 /* Historial */
@@ -65,6 +65,7 @@ button.remove-history:hover {
     justify-content: space-between;
     align-items: center;
     margin-bottom: 1rem;
+    border-bottom: 0.05rem solid #ccc;
 }
 
 .historial p {
@@ -83,8 +84,32 @@ button.remove-history:hover {
 }
 
 .historial-lista li {
+    cursor: pointer;
     padding: 5px;
     border-bottom: 1px solid #ddd;
+    white-space: nowrap; /* Evita que el texto se divida en varias líneas */
+    overflow: hidden;    /* Oculta cualquier parte del texto que se desborde */
+    text-overflow: ellipsis; /* Muestra "..." al final si el texto se desborda */
+}
+
+.historial-lista li:hover {
+    background-color: #ddd;
+}
+
+/* Código QR */
+div#qr-code img 
+{
+    width: 6rem !important;
+}
+
+/* Display */
+.d-none {
+    display: none !important;
+}
+
+.d-inline-block 
+{
+    display: inline-block !important;
 }
 
 /* Dark mode */
