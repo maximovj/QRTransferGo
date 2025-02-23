@@ -7,5 +7,19 @@ chrome.runtime.onInstalled.addListener(() => {
 });
 
 chrome.contextMenus.onClicked.addListener((info, tab) => {
+  let qrData = "";
+
+  if (info.selectionText) {
+    qrData = info.selectionText;
+  } else if (info.linkUrl) {
+    qrData = info.linkUrl;
+  } else if (info.srcUrl) {
+    qrData = info.srcUrl;
+  } else {
+    qrData = tab.url;
+  }
+
+  chrome.storage.local.set({ qrData }, () => {
     chrome.action.openPopup();
+  });
 });

@@ -31,20 +31,23 @@
         
         <p style="margin-bottom: 1rem; font-size: 1rem;">Comparte información rápidamente con <span style="color: #555;">QRTransferGo</span> mediante un código QR.</p>
         
+        <!-- Código QR -->
+        <div id="qr-code" class="d-none" style="display: flex; flex-direction: row; justify-content: center; align-items: center; padding: 0.70rem; margin-bottom: 1rem;"></div>
+
         <!-- Campo de entrada -->
         <textarea 
             name="prompt" 
-            id="prompt"
+            id="qr-input"
             placeholder="Ingrese un texto, enlace, correo electrónico, etc."
-            style="padding: 10px; border: 2px solid #007bff; border-radius: 8px; width: 90%; height: 120px; background: #ffffff; color: #333; resize: none; display: block; margin: auto; margin-bottom: 1rem;"
+            style="padding: 10px; border: 2px solid #007bff; border-radius: 8px; width: 90%; height: 90px; background: #ffffff; color: #333; resize: none; display: block; margin: auto; margin-bottom: 1rem;" 
         ></textarea> 
         
         <!-- Botones -->
         <div style="display: flex; justify-content: center; align-items: center; gap: 0.5rem; margin-bottom: 1rem;">
-            <button class="btn generate-qr">
+            <button id="generate-qr" class="btn generate-qr">
                 Generar QR
             </button>
-            <button class="btn download-qr">
+            <button id="download-qr" class="btn download-qr">
                 Descargar QR
             </button>
         </div>
@@ -52,18 +55,21 @@
         <!-- Historial -->
         <div class="historial">
             <p>Historial</p>
-            <button class="btn remove-history">Borrar historial</button>
+            <button id="clear-history" class="btn remove-history">Borrar historial</button>
         </div>
         
         <!-- Lista de historial -->
-        <ul class="historial-lista">
-            <li>Lorem #1</li>
-            <li>Lorem #2</li>
-            <li>Lorem #3</li>
-            <li>Lorem #4</li>
-            <li>Lorem #5</li>
+        <ul id="history" class="historial-lista">
+            <li>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quasi minus veritatis velit, quod quibusdam sequi rem similique sint, enim quo porro, repudiandae eius quas impedit perspiciatis cupiditate et adipisci dolorem!</li>
+            <li>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Qui, laudantium.</li>
+            <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reprehenderit earum molestias eos hic? Vero, eaque. Autem, reiciendis laudantium! Culpa laudantium tempora nostrum maxime quam dolore, dicta eligendi quos omnis ut.</li>
+            <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio dignissimos sapiente quisquam error id eum ab hic, modi fuga autem laboriosam?</li>
+            <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed accusantium quo numquam, qui, magni itaque rerum ipsa blanditiis molestiae vero omnis eligendi. Porro labore recusandae necessitatibus ipsum reiciendis nihil magni!</li>
         </ul>
     </div>
+
+    <script src="/js/qrcode.min.js"></script>
+    <script src="/js/popup.js"></script>
 
 </body>
 </html>
