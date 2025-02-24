@@ -29,7 +29,7 @@
             <h1 style="font-size: 1.5rem; font-weight: bold; color: #007bff; margin: 0;">QRTransferGo</h1>
         </div>
         
-        <p style="margin-bottom: 1rem; font-size: 1rem;">Comparte información rápidamente con <span style="color: #555;">QRTransferGo</span> mediante un código QR.</p>
+        <p id="p-description" style="margin-bottom: 1rem; font-size: 1rem;"></p>
         
         <!-- Código QR -->
         <div id="qr-code" class="d-none" style="display: flex; flex-direction: row; justify-content: center; align-items: center; padding: 0.70rem; margin-bottom: 1rem;"></div>
@@ -38,7 +38,7 @@
         <textarea 
             name="prompt" 
             id="qr-input"
-            placeholder="Ingrese un texto, enlace (RR.SS, Video, Música, Imágen, Archivo, etc.), correo electrónico, etc."
+            placeholder="Ingrese un texto, enlace (RR.SS, Video, Música, Imagen, Archivo, etc.), sin exceder los 160 caracteres"
         ></textarea> 
         
         <!-- Botones -->
@@ -53,7 +53,7 @@
         
         <!-- Historial -->
         <div class="historial">
-            <p>Historial</p>
+            <p id="title-history">Historial</p>
             <button id="clear-history" class="btn remove-history">Borrar historial</button>
         </div>
         
