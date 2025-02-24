@@ -9,6 +9,16 @@ body {
     border-radius: 12px;
 }
 
+img {
+    padding: 0.05rem;
+    background-color: #f8f9fa;
+    border-radius: 100%;
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    -ms-border-radius: 100%;
+    -o-border-radius: 100%;
+}
+
 textarea {
     background-color: #ffffff;
     color: #333;
