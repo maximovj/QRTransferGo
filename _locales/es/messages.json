@@ -1,0 +1,47 @@
+{
+  "ext_name": {
+    "message": "QRTransferGo"
+  },
+  "ext_description": {
+    "message": "Extensión para generar y compartir multimedia mediante códigos QR"
+  },
+  "p_description": {
+    "message": "Comparte información rápidamente con {app_name} mediante un código QR."
+  },
+  "qr_input": {
+    "message": "Ingrese un texto, enlace (RR.SS, Video, Música, Imagen, Archivo, etc.), sin exceder los 160 caracteres"
+  },
+  "generate_qr": {
+    "message": "Generar QR"
+  },
+  "download_qr": {
+    "message": "Descargar QR"
+  },
+  "clear_history": {
+    "message": "Borrar historia"
+  },
+  "title_history": {
+    "message": "Historia"
+  },
+  "li_title": {
+    "message": "Haz clic para generar código QR"
+  },
+  "share_by_qr": {
+    "message": "Compartir mediante QR"
+  },
+  "notification_1": {
+    "message": "Genera y comparte multimedia mediante códigos QR, gracias por usar la extensión"
+  },
+  "notification_2": {
+    "message": "Generando código QR, gracias por usar la extensión"
+  },
+  "error_1": {
+    "message": "Por favor, ingresa un texto o enlace"
+  },
+  "error_2": {
+    "message": "Error al generar Código QR"
+  },
+  "error_3": {
+    "message": "Genera un código QR primero"
+  }
+}

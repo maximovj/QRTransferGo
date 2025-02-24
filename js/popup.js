@@ -17,7 +17,7 @@ document.getElementById("generate-qr").addEventListener("click", () => {
     generateQRCode(inputText);
     saveToHistory(inputText);
   } else {
-    alert("Por favor, ingresa un texto o enlace");
+    alert(chrome.i18n.getMessage("error_1"));
   }
 });
 
@@ -41,7 +41,7 @@ function generateQRCode(text) {
       correctLevel : QRCode.CorrectLevel.L,
     });
   } catch (error) {
-    document.getElementById("qr-code").innerHTML = "Error en generar Código QR :'(";
+    document.getElementById("qr-code").innerHTML = chrome.i18n.getMessage("error_2");
     document.getElementById("qr-code").classList.add("d-inline-block");
   }
 
@@ -53,7 +53,7 @@ function generateQRCode(text) {
 // Función para descargar QR como imagen
 function downloadQRCode() {
   const qrCanvas = document.querySelector("#qr-code canvas");
-  if (!qrCanvas) return alert("Genera un código QR primero.");
+  if (!qrCanvas) return alert(chrome.i18n.getMessage("error_3"));
   
   const qrImage = qrCanvas.toDataURL("image/png");
   const link = document.createElement("a");
@@ -83,7 +83,7 @@ function loadHistory() {
       const li = document.createElement("li");
       li.classList.add("history-item");
       li.textContent = item;
-      li.title = 'Generar QR';
+      li.title = chrome.i18n.getMessage("li_title");
       li.addEventListener("click", () => {
         document.getElementById("qr-input").value = item;
         generateQRCode(item);
@@ -92,3 +92,23 @@ function loadHistory() {
     });
   });
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+  const appName = chrome.i18n.getMessage("ext_name"); // Obtiene "QRTransferGo"
+  const description = chrome.i18n.getMessage("p_description", appName); // Reemplaza {app_name} con el nombre real
+
+  document.getElementById("p-description").innerHTML = description.replace(
+    '{app_name}',
+    `<span style="color: #555;">${appName}</span>`
+  );
+  
+  document.getElementById("qr-input").setAttribute('placeholder', chrome.i18n.getMessage("qr_input"));
+
+  document.getElementById("generate-qr").innerHTML = chrome.i18n.getMessage("generate_qr");
+
+  document.getElementById("download-qr").innerHTML = chrome.i18n.getMessage("download_qr");
+ 
+  document.getElementById("clear-history").innerHTML = chrome.i18n.getMessage("clear_history");
+  
+  document.getElementById("title-history").innerHTML = chrome.i18n.getMessage("title_history");
+});
