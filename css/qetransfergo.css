@@ -9,7 +9,7 @@ body {
     border-radius: 12px;
 }
 
-img {
+img#img-logo {
     padding: 0.05rem;
     background-color: #f8f9fa;
     border-radius: 100%;
