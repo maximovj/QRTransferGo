@@ -14,14 +14,17 @@
   "generate_qr": {
     "message": "Generar QR"
   },
+  "delete_qr": {
+    "message": "Eliminar"
+  },
   "download_qr": {
     "message": "Descargar QR"
   },
   "clear_history": {
-    "message": "Borrar historia"
+    "message": "Borrar historial"
   },
   "title_history": {
-    "message": "Historia"
+    "message": "Historial"
   },
   "li_title": {
     "message": "Haz clic para generar código QR"

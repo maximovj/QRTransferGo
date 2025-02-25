@@ -5,7 +5,6 @@ document.addEventListener("DOMContentLoaded", () => {
     if (data.qrData) {
       document.getElementById("qr-input").value = data.qrData;
       generateQRCode(data.qrData);
-      saveToHistory(data.qrData);
       chrome.storage.local.remove("qrData");
     }
   });
@@ -15,7 +14,6 @@ document.getElementById("generate-qr").addEventListener("click", () => {
   const inputText = document.getElementById("qr-input").value;
   if (inputText) {
     generateQRCode(inputText);
-    saveToHistory(inputText);
   } else {
     alert(chrome.i18n.getMessage("error_1"));
   }
@@ -32,14 +30,16 @@ document.getElementById("download-qr").addEventListener("click", () => {
 // Función para generar código QR
 function generateQRCode(text) {
   try {
+    countCharacters();
     document.getElementById("qr-code").innerHTML = "";
     document.getElementById("qr-code").classList.add("d-inline-block");
     new QRCode(document.getElementById("qr-code"), {
       text: text,
-      width: 90,
-      height: 90,
+      width: 240,
+      height: 240,
       correctLevel : QRCode.CorrectLevel.L,
     });
+    saveToHistory(text);
   } catch (error) {
     document.getElementById("qr-code").innerHTML = chrome.i18n.getMessage("error_2");
     document.getElementById("qr-code").classList.add("d-inline-block");
@@ -79,18 +79,66 @@ function loadHistory() {
   chrome.storage.local.get({ history: [] }, function (data) {
     const historyContainer = document.getElementById("history");
     historyContainer.innerHTML = "";
-    data.history.forEach(item => {
+
+    data.history.forEach((item, index) => {
       const li = document.createElement("li");
       li.classList.add("history-item");
-      li.textContent = item;
-      li.title = chrome.i18n.getMessage("li_title");
-      li.addEventListener("click", () => {
+
+      // Contenido del historial
+      const textSpan = document.createElement("span");
+      textSpan.textContent = item;
+      textSpan.title = chrome.i18n.getMessage("li_title");
+
+      // Contenedor para organizar los elementos en columna
+      const actions = document.createElement("div");
+      actions.classList.add("btn-actions");
+
+      // Botón de eliminación debajo
+      const deleteBtn = document.createElement("button");
+      deleteBtn.textContent = chrome.i18n.getMessage("delete_qr");
+      deleteBtn.classList.add("delete-btn");
+      deleteBtn.addEventListener("click", (event) => {
+        event.stopPropagation(); // Evita que el click seleccione el ítem
+        removeHistoryItem(index);
+      });
+
+      // Botón de eliminación debajo
+      const regenerateBtn = document.createElement("button");
+      regenerateBtn.textContent = chrome.i18n.getMessage("generate_qr");
+      regenerateBtn.classList.add("regenerate-btn");
+      regenerateBtn.addEventListener("click", (event) => {
+        event.stopPropagation(); // Evita que el click seleccione el ítem
         document.getElementById("qr-input").value = item;
         generateQRCode(item);
       });
+
+      // Contenedor para organizar los elementos en columna
+      const wrapper = document.createElement("div");
+      wrapper.classList.add("history-wrapper");
+      wrapper.appendChild(textSpan);
+      actions.appendChild(deleteBtn);
+      actions.appendChild(regenerateBtn);
+      wrapper.appendChild(actions);
+
+      // Agregar elementos al li
+      li.appendChild(wrapper);
       historyContainer.appendChild(li);
     });
   });
+}
+
+// Función para eliminar un item del historial
+function removeHistoryItem(index) {
+  chrome.storage.local.get({ history: [] }, function (data) {
+    const updatedHistory = data.history.filter((_, i) => i !== index);
+    chrome.storage.local.set({ history: updatedHistory }, loadHistory);
+  });
+}
+
+// Función para contador de caracteres
+function countCharacters() {
+  const charCount = document.getElementById("char-count");
+  charCount.textContent = `${document.getElementById("qr-input").value.length} / 160`;
 }
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -111,4 +159,9 @@ document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("clear-history").innerHTML = chrome.i18n.getMessage("clear_history");
   
   document.getElementById("title-history").innerHTML = chrome.i18n.getMessage("title_history");
+
+  
+  document.getElementById("qr-input").addEventListener("input", () => {
+    countCharacters();
+  });
 });

@@ -97,13 +97,54 @@ button.remove-history:hover {
     cursor: pointer;
     padding: 5px;
     border-bottom: 1px solid #ddd;
-    white-space: nowrap; /* Evita que el texto se divida en varias líneas */
-    overflow: hidden;    /* Oculta cualquier parte del texto que se desborde */
-    text-overflow: ellipsis; /* Muestra "..." al final si el texto se desborda */
+    white-space: nowrap; /* No permite saltos de línea */
+    overflow: hidden;    /* Oculta el texto que sobrepasa el ancho */
+    text-overflow: ellipsis; /* Agrega "..." cuando el texto es demasiado largo */
+    width: 312px; /* Asegúrate de que el elemento tenga un ancho fijo */
+}
+
+.historial-lista li span {
+    display: block; /* Necesario para que las reglas se apliquen correctamente */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%; /* Asegura que respete el ancho del li */
 }
 
 .historial-lista li:hover {
     background-color: #ddd;
+}
+
+.history-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 0.55rem;
+}
+
+.btn-actions  {
+    display: flex;
+    flex-direction: row;
+    gap: 0.55rem;
+    align-items: center;
+}
+
+.delete-btn {
+    background-color: transparent;
+    border: 0;
+    padding: 0;
+    margin: 0;
+    color: #e67171;
+    font-size: 0.8rem;
+}
+
+.regenerate-btn {
+    background-color: transparent;
+    border: 0;
+    padding: 0;
+    margin: 0;
+    color: #5b9de4;
+    font-size: 0.8rem;
 }
 
 /* Estilo inicial del textarea */
@@ -111,15 +152,20 @@ button.remove-history:hover {
     padding: 10px;
     border: 2px solid #007bff;
     border-radius: 8px;
-    width: 90%;
-    height: 40px; /* Altura inicial */
-    background: #ffffff;
+    width: 300px;
+    height: 40px;
+    /*Alturainicial*/background: #ffffff;
     color: #333;
     resize: none;
     display: block;
     margin: auto;
     margin-bottom: 1rem;
-    transition: height 0.3s ease; /* Suaviza el cambio de tamaño */
+    transition: height 0.3s ease;
+    /*Suavizaelcambiodetamaño*/padding-bottom: 20px;
+    -webkit-transition: height 0.3s ease;
+    -moz-transition: height 0.3s ease;
+    -ms-transition: height 0.3s ease;
+    -o-transition: height 0.3s ease;
 }
 
 /* Cuando el textarea está en foco */
