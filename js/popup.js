@@ -106,14 +106,21 @@ function loadHistory() {
       const actions = document.createElement("div");
       actions.classList.add("btn-actions");
 
-      // Botón de eliminación debajo
-      const deleteBtn = document.createElement("button");
-      deleteBtn.textContent = chrome.i18n.getMessage("delete_qr");
-      deleteBtn.classList.add("delete-btn");
-      deleteBtn.addEventListener("click", (event) => {
+      // Botón de abrir debajo
+      const openBtn = document.createElement("button");
+      openBtn.textContent = 'Abrir';
+      openBtn.classList.add("open-btn");
+      openBtn.addEventListener("click", (event) => {
+        console.log('abriendo...');
         event.stopPropagation(); // Evita que el click seleccione el ítem
-        removeHistoryItem(index);
+        if(isLink(item)) {
+          openInNewTabHistoryItem(item);
+        } else {
+          document.getElementById("qr-input").value = item;
+          countCharacters();
+        }
       });
+      actions.appendChild(openBtn);
 
       // Botón de copiar debajo
       const copyBtn = document.createElement("button");
@@ -124,21 +131,9 @@ function loadHistory() {
         event.stopPropagation(); // Evita que el click seleccione el ítem
         copyHistoryItem(item);
       });
+      actions.appendChild(copyBtn);
 
-      // Botón de abrir debajo
-      const openBtn = document.createElement("button");
-      if(isLink(item)) {
-        openBtn.textContent = 'Abrir';
-        openBtn.classList.add("open-btn");
-        openBtn.addEventListener("click", (event) => {
-          console.log('abriendo...');
-          event.stopPropagation(); // Evita que el click seleccione el ítem
-          openInNewTabHistoryItem(item);
-        });
-        actions.appendChild(openBtn);
-      }
-
-      // Botón de eliminación debajo
+      // Botón de generar QR debajo
       const regenerateBtn = document.createElement("button");
       regenerateBtn.textContent = chrome.i18n.getMessage("generate_qr");
       regenerateBtn.classList.add("regenerate-btn");
@@ -147,14 +142,22 @@ function loadHistory() {
         document.getElementById("qr-input").value = item;
         generateQRCode(item);
       });
+      actions.appendChild(regenerateBtn);
+      
+      // Botón de eliminación debajo
+      const deleteBtn = document.createElement("button");
+      deleteBtn.textContent = chrome.i18n.getMessage("delete_qr");
+      deleteBtn.classList.add("delete-btn");
+      deleteBtn.addEventListener("click", (event) => {
+        event.stopPropagation(); // Evita que el click seleccione el ítem
+        removeHistoryItem(index);
+      });
+      actions.appendChild(deleteBtn);
 
       // Contenedor para organizar los elementos en columna
       const wrapper = document.createElement("div");
       wrapper.classList.add("history-wrapper");
       wrapper.appendChild(textSpan);
-      actions.appendChild(deleteBtn);
-      actions.appendChild(copyBtn);
-      actions.appendChild(regenerateBtn);
       wrapper.appendChild(actions);
 
       // Agregar elementos al li
