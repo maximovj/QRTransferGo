@@ -9,7 +9,7 @@
     "message": "Share information quickly with {app_name} using a QR code."
   },
   "qr_input": {
-    "message": "Enter text, link (social media, video, music, image, file, etc.), not exceeding 160 characters"
+    "message": "Enter a text, link (Social Media, Video, Music, Image, File, etc.) with a recommended 1600 characters"
   },
   "generate_qr": {
     "message": "Generate QR"

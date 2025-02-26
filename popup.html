@@ -55,31 +55,33 @@
       <p id="p-description" style="margin-bottom: 1rem; font-size: 1rem"></p>
 
       <!-- Código QR -->
-      <canvas
+      <div
         id="qr-code"
-        width="100" 
-        height="100"
         class="d-none"
         style="
           display: flex;
           flex-direction: row;
           justify-content: center;
           align-items: center;
-          padding: 0.25rem;
-          margin-bottom: 1rem;
           background-color: #ffffff;
           border-radius: 0.25rem;
-          min-width: 10px;
-          min-height: 10px;
+          min-width: 100px;
+          min-height: 100px;
+          margin: auto;
+          margin-bottom: 1.2rem;
         "
-      ></canvas>
+      >
+      <canvas id="qr-canvas" width="100" height="100" style="display: none;"></canvas>
+      <img id="qr-img" src="#" width="240" height="240" style="display: block;">
+      </div>
 
       <!-- Contenedor relativo -->
       <div style="position: relative; display: inline-block">
         <textarea
           name="prompt"
           id="qr-input"
-          placeholder="Ingrese un texto, enlace (RR.SS, Video, Música, Imagen, Archivo, etc.), sin exceder los 160 caracteres"
+          minlength="1"
+          placeholder="Ingrese un texto, enlace (RR.SS, Video, Música, Imagen, Archivo, etc.) con 1600 caracteres recomendado"
         ></textarea>
         <span
           id="char-count"
@@ -90,7 +92,7 @@
             font-size: 0.8rem;
             color: gray;
           "
-          >0 / 160</span
+          >0 / 1600</span
         >
       </div>
 

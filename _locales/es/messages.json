@@ -9,7 +9,7 @@
     "message": "Comparte información rápidamente con {app_name} mediante un código QR."
   },
   "qr_input": {
-    "message": "Ingrese un texto, enlace (RR.SS, Video, Música, Imagen, Archivo, etc.), sin exceder los 160 caracteres"
+    "message": "Ingrese un texto, enlace (RR.SS, Video, Música, Imagen, Archivo, etc.) con 1600 caracteres recomendado."
   },
   "generate_qr": {
     "message": "Generar QR"

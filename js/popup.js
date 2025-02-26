@@ -29,32 +29,21 @@ document.getElementById("download-qr").addEventListener("click", () => {
 
 // Función para generar código QR
 function generateQRCode(text) {
+  
   try {
     countCharacters();
     document.getElementById("qr-code").classList.remove("d-none");
-    document.getElementById("qr-code").classList.add("d-inline-block");
+    document.getElementById("qr-code").classList.add("d-flex");
     const qr = new QRious({
-      element: document.getElementById("qr-code"),
-      size: 100,
-      padding: 0,
+      element: document.getElementById("qr-canvas"),
+      size: 1024,
       value: text,
     });
-    
-    //qr.canvas.parentNode.appendChild(qr.image);
-
-    /*
-    new QRCode(document.getElementById("qr-code"), {
-      text: text,
-      width: 1024,
-      height: 1024,
-      correctLevel : QRCode.CorrectLevel.L,
-      version: 20,
-    });
-    */
+    document.getElementById("qr-img").src = qr.toDataURL();
     saveToHistory(text);
   } catch (error) {
     document.getElementById("qr-code").innerHTML = chrome.i18n.getMessage("error_2");
-    document.getElementById("qr-code").classList.add("d-inline-block");
+    document.getElementById("qr-code").classList.add("d-flex");
     document.getElementById("qr-code").classList.add("msg-error");
   }
 
@@ -151,7 +140,7 @@ function removeHistoryItem(index) {
 // Función para contador de caracteres
 function countCharacters() {
   const charCount = document.getElementById("char-count");
-  charCount.textContent = `${document.getElementById("qr-input").value.length} / 160`;
+  charCount.textContent = `${document.getElementById("qr-input").value.length} / 1600`;
 }
 
 document.addEventListener("DOMContentLoaded", () => {
