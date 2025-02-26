@@ -94,7 +94,6 @@ button.remove-history:hover {
 }
 
 .historial-lista li {
-    cursor: pointer;
     padding: 5px;
     border-bottom: 1px solid #ddd;
     white-space: nowrap; /* No permite saltos de línea */
