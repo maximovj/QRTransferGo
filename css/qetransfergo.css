@@ -52,21 +52,13 @@ button.download-qr {
     background: #ff914d;
 }
 
-button.remove-history {
-    background: #ff4d4d;
-    transform: scale(0.7);
-    -webkit-transform: scale(0.7);
-    -moz-transform: scale(0.7);
-    -ms-transform: scale(0.7);
-    -o-transform: scale(0.7);
-}
-
-button.remove-history:hover {
-    transform: scale(0.74);
-    -webkit-transform: scale(0.74);
-    -moz-transform: scale(0.74);
-    -ms-transform: scale(0.74);
-    -o-transform: scale(0.74);
+button.remove-history-btn {
+    background-color: transparent;
+    border: 0;
+    padding: 0;
+    margin: 0;
+    color: #ff3030;
+    font-size: 0.8rem;
 }
 
 div.ext-container {
@@ -171,6 +163,7 @@ div.ext-footer > h1 > a
     justify-content: space-between;
     align-items: center;
     margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
     border-bottom: 0.05rem solid #ccc;
 }
 
