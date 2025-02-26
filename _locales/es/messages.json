@@ -29,6 +29,12 @@
   "li_title": {
     "message": "Haz clic para generar código QR"
   },
+  "open_btn": {
+    "message": "Abrir"
+  },
+  "copy_btn": {
+    "message": "Copiar"
+  },
   "share_by_qr": {
     "message": "Compartir mediante QR"
   },

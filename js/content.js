@@ -152,7 +152,6 @@ function loadHistory() {
       // Contenido del historial
       const textSpan = document.createElement("span");
       textSpan.textContent = item;
-      textSpan.title = chrome.i18n.getMessage("li_title");
 
       // Contenedor para organizar los elementos en columna
       const actions = document.createElement("div");
@@ -160,10 +159,9 @@ function loadHistory() {
 
       // Botón de abrir debajo
       const openBtn = document.createElement("button");
-      openBtn.textContent = "Abrir";
+      openBtn.textContent = chrome.i18n.getMessage("open_btn");
       openBtn.classList.add("open-btn");
       openBtn.addEventListener("click", (event) => {
-        console.log("abriendo...");
         event.stopPropagation(); // Evita que el click seleccione el ítem
         if (isLink(item)) {
           openInNewTabHistoryItem(item);
@@ -176,10 +174,9 @@ function loadHistory() {
 
       // Botón de copiar debajo
       const copyBtn = document.createElement("button");
-      copyBtn.textContent = "Copiar";
+      copyBtn.textContent = chrome.i18n.getMessage("copy_btn");
       copyBtn.classList.add("copy-btn");
       copyBtn.addEventListener("click", (event) => {
-        console.log("copiar...");
         event.stopPropagation(); // Evita que el click seleccione el ítem
         copyHistoryItem(item);
       });

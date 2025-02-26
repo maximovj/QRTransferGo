@@ -214,7 +214,7 @@ div.ext-footer > h1 > a
     display: flex;
     flex-direction: column;
     align-items: start;
-    gap: 0.55rem;
+    gap: 1rem;
 }
 
 .btn-actions  {
