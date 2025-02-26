@@ -35,9 +35,10 @@ function generateQRCode(text) {
     document.getElementById("qr-code").classList.add("d-inline-block");
     new QRCode(document.getElementById("qr-code"), {
       text: text,
-      width: 240,
-      height: 240,
+      width: 1024,
+      height: 1024,
       correctLevel : QRCode.CorrectLevel.L,
+      version: 20,
     });
     saveToHistory(text);
   } catch (error) {
