@@ -190,6 +190,11 @@ div#qr-code img
     display: inline-block !important;
 }
 
+.msg-error {
+    color: #e67171;
+    font-size: 1rem;
+}
+
 /* Dark mode */
 @media (prefers-color-scheme: dark) {
     body {

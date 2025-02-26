@@ -31,8 +31,18 @@ document.getElementById("download-qr").addEventListener("click", () => {
 function generateQRCode(text) {
   try {
     countCharacters();
-    document.getElementById("qr-code").innerHTML = "";
+    document.getElementById("qr-code").classList.remove("d-none");
     document.getElementById("qr-code").classList.add("d-inline-block");
+    const qr = new QRious({
+      element: document.getElementById("qr-code"),
+      size: 100,
+      padding: 0,
+      value: text,
+    });
+    
+    //qr.canvas.parentNode.appendChild(qr.image);
+
+    /*
     new QRCode(document.getElementById("qr-code"), {
       text: text,
       width: 1024,
@@ -40,10 +50,12 @@ function generateQRCode(text) {
       correctLevel : QRCode.CorrectLevel.L,
       version: 20,
     });
+    */
     saveToHistory(text);
   } catch (error) {
     document.getElementById("qr-code").innerHTML = chrome.i18n.getMessage("error_2");
     document.getElementById("qr-code").classList.add("d-inline-block");
+    document.getElementById("qr-code").classList.add("msg-error");
   }
 
   setTimeout(() => {

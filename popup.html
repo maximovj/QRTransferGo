@@ -55,8 +55,10 @@
       <p id="p-description" style="margin-bottom: 1rem; font-size: 1rem"></p>
 
       <!-- Código QR -->
-      <div
+      <canvas
         id="qr-code"
+        width="100" 
+        height="100"
         class="d-none"
         style="
           display: flex;
@@ -67,8 +69,10 @@
           margin-bottom: 1rem;
           background-color: #ffffff;
           border-radius: 0.25rem;
+          min-width: 10px;
+          min-height: 10px;
         "
-      ></div>
+      ></canvas>
 
       <!-- Contenedor relativo -->
       <div style="position: relative; display: inline-block">
@@ -158,6 +162,7 @@
       </ul>
     </div>
 
+    <script src="/js/qrious.min.js"></script>
     <script src="/js/qrcode.min.js"></script>
     <script src="/js/popup.js"></script>
   </body>
