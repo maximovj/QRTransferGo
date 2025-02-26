@@ -25,87 +25,40 @@
   </head>
 
   <body>
-    <div style="padding: 0.5rem; margin: 0 auto">
+    <div class="ext-container">
       <!-- Logo, título y versión -->
-      <div
-        style="
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          gap: 10px;
-          margin-bottom: 1rem;
-        "
-      >
+      <div class="ext-header">
         <img src="/assets/icon.png" alt="icon.png" width="64" id="img-logo" />
-        <h1
-          style="
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #007bff;
-            margin: 0;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-          "
-        >
-          QRTransferGo <span style="font-size: 1rem; color: gray">v1.0.0</span>
+        <h1>
+          QRTransferGo <span>v1.0.0</span>
         </h1>
       </div>
 
-      <p id="p-description" style="margin-bottom: 1rem; font-size: 1rem"></p>
+      <!-- Proposito -->
+      <p id="p-description" class="ext-description"></p>
 
       <!-- Código QR -->
       <div
         id="qr-code"
-        class="d-none"
-        style="
-          display: flex;
-          flex-direction: row;
-          justify-content: center;
-          align-items: center;
-          background-color: #ffffff;
-          border-radius: 0.25rem;
-          min-width: 100px;
-          min-height: 100px;
-          margin: auto;
-          margin-bottom: 1.2rem;
-        "
+        class="ext-qr-code d-none"
       >
       <canvas id="qr-canvas" width="100" height="100" style="display: none;"></canvas>
       <img id="qr-img" src="#" width="240" height="240" style="display: block;">
       </div>
 
       <!-- Contenedor relativo -->
-      <div style="position: relative; display: inline-block">
+      <div class="ext-qr-input-container">
         <textarea
           name="prompt"
           id="qr-input"
           minlength="1"
           placeholder="Ingrese un texto, enlace (RR.SS, Video, Música, Imagen, Archivo, etc.) con 1600 caracteres recomendado"
         ></textarea>
-        <span
-          id="char-count"
-          style="
-            position: absolute;
-            top: -15px;
-            right: 10px;
-            font-size: 0.8rem;
-            color: gray;
-          "
-          >0 / 1600</span
-        >
+        <span id="char-count">0 / 1600</span>
       </div>
 
       <!-- Botones -->
-      <div
-        style="
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          gap: 0.5rem;
-          margin-bottom: 1rem;
-        "
-      >
+      <div class="ext-actions">
         <button id="generate-qr" class="btn generate-qr">Generar QR</button>
         <button id="download-qr" class="btn download-qr">Descargar QR</button>
       </div>
@@ -122,28 +75,9 @@
       <ul id="history" class="historial-lista"></ul>
 
       <!-- Pie de página -->
-      <div
-        style="
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          gap: 10px;
-          margin-top: 1rem;
-          margin-bottom: 1rem;
-        "
-      >
-        <h1
-          style="
-            font-size: 0.5rem;
-            font-weight: bold;
-            color: gray;
-            margin: 0;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-          "
-        >
-          <span id="created_by">Creado por:</span> <a href="https://github.com/maximovj" target="_blank" rel="noopener noreferrer" style="font-size: 0.5; color: gray">Víctor J.</a>
+      <div class="ext-footer">
+        <h1>
+          <span id="created_by">Creado por:</span> <a href="https://github.com/maximovj" target="_blank" rel="noopener noreferrer">Víctor J.</a>
         </h1>
       </div>
     </div>
