@@ -32,6 +32,9 @@
   "share_by_qr": {
     "message": "Compartir mediante QR"
   },
+  "created_by": {
+    "message": "Creado por:"
+  },
   "notification_1": {
     "message": "Genera y comparte multimedia mediante códigos QR, gracias por usar la extensión"
   },

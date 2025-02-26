@@ -32,6 +32,9 @@
   "share_by_qr": {
     "message": "Share via QR"
   },
+  "created_by": {
+    "message": "Created by:"
+  },
   "notification_1": {
     "message": "Generate and share multimedia via QR codes. Thank you for using the extension."
   },

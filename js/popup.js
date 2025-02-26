@@ -45,7 +45,8 @@ document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("clear-history").innerHTML = chrome.i18n.getMessage("clear_history");
   
   document.getElementById("title-history").innerHTML = chrome.i18n.getMessage("title_history");
-
+  
+  document.getElementById("created_by").innerHTML = chrome.i18n.getMessage("created_by");
   
   document.getElementById("qr-input").addEventListener("input", () => {
     countCharacters();
