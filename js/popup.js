@@ -27,6 +27,17 @@ document.getElementById("download-qr").addEventListener("click", () => {
   downloadQRCode();
 });
 
+// Función comprobar si es un enlace válida
+function isLink(texto) {
+  try {
+    new URL(texto);
+    return true;
+  } catch (_) {
+    // Si `new URL()` falla, usa una regex como alternativa
+    return /^(www\.)?[\w-]+\.[a-z]{2,}(\S*)?$/i.test(texto);
+  }
+}
+
 // Función para generar código QR
 function generateQRCode(text) {
   
@@ -104,6 +115,29 @@ function loadHistory() {
         removeHistoryItem(index);
       });
 
+      // Botón de copiar debajo
+      const copyBtn = document.createElement("button");
+      copyBtn.textContent = 'Copiar';
+      copyBtn.classList.add("copy-btn");
+      copyBtn.addEventListener("click", (event) => {
+        console.log('copiar...');
+        event.stopPropagation(); // Evita que el click seleccione el ítem
+        copyHistoryItem(item);
+      });
+
+      // Botón de abrir debajo
+      const openBtn = document.createElement("button");
+      if(isLink(item)) {
+        openBtn.textContent = 'Abrir';
+        openBtn.classList.add("open-btn");
+        openBtn.addEventListener("click", (event) => {
+          console.log('abriendo...');
+          event.stopPropagation(); // Evita que el click seleccione el ítem
+          openInNewTabHistoryItem(item);
+        });
+        actions.appendChild(openBtn);
+      }
+
       // Botón de eliminación debajo
       const regenerateBtn = document.createElement("button");
       regenerateBtn.textContent = chrome.i18n.getMessage("generate_qr");
@@ -119,6 +153,7 @@ function loadHistory() {
       wrapper.classList.add("history-wrapper");
       wrapper.appendChild(textSpan);
       actions.appendChild(deleteBtn);
+      actions.appendChild(copyBtn);
       actions.appendChild(regenerateBtn);
       wrapper.appendChild(actions);
 
@@ -135,6 +170,18 @@ function removeHistoryItem(index) {
     const updatedHistory = data.history.filter((_, i) => i !== index);
     chrome.storage.local.set({ history: updatedHistory }, loadHistory);
   });
+}
+
+// Función para copiar un item del historial
+function copyHistoryItem(item) {
+  if (!item) return;
+  navigator.clipboard.writeText(item);
+}
+
+// Función para abrir / navegar a un item del historial
+function openInNewTabHistoryItem(item) {
+  if (!item) return;
+  chrome.tabs.create({ url: item });
 }
 
 // Función para contador de caracteres

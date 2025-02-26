@@ -129,12 +129,30 @@ button.remove-history:hover {
     align-items: center;
 }
 
+.open-btn {
+    background-color: transparent;
+    border: 0;
+    padding: 0;
+    margin: 0;
+    color: #5be489;
+    font-size: 0.8rem;
+}
+
 .delete-btn {
     background-color: transparent;
     border: 0;
     padding: 0;
     margin: 0;
     color: #e67171;
+    font-size: 0.8rem;
+}
+
+.copy-btn {
+    background-color: transparent;
+    border: 0;
+    padding: 0;
+    margin: 0;
+    color: #d9bf58;
     font-size: 0.8rem;
 }
 

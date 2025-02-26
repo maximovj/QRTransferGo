@@ -21,7 +21,6 @@ chrome.runtime.onInstalled.addListener(() => {
 
 chrome.contextMenus.onClicked.addListener((info, tab) => {
   let qrData = "";
-  console.log({info, tab});
 
   if (info.selectionText) {
     const text = info.selectionText.trim();
