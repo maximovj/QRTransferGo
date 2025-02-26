@@ -74,13 +74,15 @@ function countCharacters() {
 function generateQRCode(text) {
   try {
     countCharacters();
-    document.getElementById("qr-code").classList.remove("d-none");
-    document.getElementById("qr-code").classList.add("d-flex");
     const qr = new QRious({
       element: document.getElementById("qr-canvas"),
       size: 1024,
       value: text,
     });
+    document.getElementById("qr-code").classList.remove("d-none");
+    document.getElementById("download-qr").classList.remove("d-none");
+    document.getElementById("qr-code").classList.add("d-flex");
+    document.getElementById("download-qr").classList.add("d-block");
     document.getElementById("qr-img").src = qr.toDataURL();
     saveToHistory(text);
   } catch (error) {
