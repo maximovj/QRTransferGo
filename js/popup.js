@@ -36,6 +36,8 @@ document.addEventListener("DOMContentLoaded", () => {
     `<span style="color: #555;">${appName}</span>`
   );
   
+  document.getElementById("ext-version").innerHTML = chrome.i18n.getMessage("ext_version");
+
   document.getElementById("qr-input").setAttribute('placeholder', chrome.i18n.getMessage("qr_input"));
 
   document.getElementById("generate-qr").innerHTML = chrome.i18n.getMessage("generate_qr");
@@ -48,7 +50,5 @@ document.addEventListener("DOMContentLoaded", () => {
   
   document.getElementById("created_by").innerHTML = chrome.i18n.getMessage("created_by");
   
-  document.getElementById("qr-input").addEventListener("input", () => {
-    countCharacters();
-  });
+  document.getElementById("qr-input").addEventListener("input", () => { countCharacters(); });
 });
