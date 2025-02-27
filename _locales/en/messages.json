@@ -39,7 +39,7 @@
     "message": "Copy"
   },
   "share_by_qr": {
-    "message": "Share via QR"
+    "message": "Share via QR (Dev)"
   },
   "created_by": {
     "message": "Created by:"
