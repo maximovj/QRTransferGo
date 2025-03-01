@@ -32,17 +32,22 @@ document.getElementById("download-qr").addEventListener("click", () => {
 // Función para generar código QR
 function generateQRCode(text) {
   try {
-    document.getElementById("qr-code").innerHTML = "";
-    document.getElementById("qr-code").classList.add("d-inline-block");
-    new QRCode(document.getElementById("qr-code"), {
-      text: text,
-      width: 90,
-      height: 90,
-      correctLevel : QRCode.CorrectLevel.L,
+    const qr = new QRious({
+      element: document.getElementById("qr-canvas"),
+      size: 1024,
+      value: text,
     });
+    document.getElementById("qr-code").classList.remove("d-none");
+    document.getElementById("download-qr").classList.remove("d-none");
+    document.getElementById("qr-code").classList.add("d-flex");
+    document.getElementById("download-qr").classList.add("d-block");
+    document.getElementById("qr-img").src = qr.toDataURL();
+    saveToHistory(text);
   } catch (error) {
-    document.getElementById("qr-code").innerHTML = chrome.i18n.getMessage("error_2");
-    document.getElementById("qr-code").classList.add("d-inline-block");
+    document.getElementById("qr-code").innerHTML =
+      chrome.i18n.getMessage("error_2");
+    document.getElementById("qr-code").classList.add("d-flex");
+    document.getElementById("qr-code").classList.add("msg-error");
   }
 
   setTimeout(() => {
