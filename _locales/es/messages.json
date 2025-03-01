@@ -1,6 +1,6 @@
 {
   "ext_name": {
-    "message": "QRTransferGo"
+    "message": "QRTransferGo (Dev)"
   },
   "ext_description": {
     "message": "Extensión para generar y compartir multimedia mediante códigos QR"
@@ -27,7 +27,7 @@
     "message": "Haz clic para generar código QR"
   },
   "share_by_qr": {
-    "message": "Compartir mediante QR"
+    "message": "Compartir mediante QR (Dev)"
   },
   "notification_1": {
     "message": "Genera y comparte multimedia mediante códigos QR, gracias por usar la extensión"
