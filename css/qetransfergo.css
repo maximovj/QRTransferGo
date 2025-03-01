@@ -52,21 +52,109 @@ button.download-qr {
     background: #ff914d;
 }
 
-button.remove-history {
-    background: #ff4d4d;
-    transform: scale(0.7);
-    -webkit-transform: scale(0.7);
-    -moz-transform: scale(0.7);
-    -ms-transform: scale(0.7);
-    -o-transform: scale(0.7);
+button.remove-history-btn {
+    background-color: transparent;
+    border: 0;
+    padding: 0;
+    margin: 0;
+    color: #ff3030;
+    font-size: 0.8rem;
 }
 
-button.remove-history:hover {
-    transform: scale(0.74);
-    -webkit-transform: scale(0.74);
-    -moz-transform: scale(0.74);
-    -ms-transform: scale(0.74);
-    -o-transform: scale(0.74);
+div.ext-container {
+    padding: 0.5rem; margin: 0 auto;
+}
+
+/* Logo, título y versión  */
+div.ext-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 1rem;
+}
+
+div.ext-header > h1 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #007bff;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+div.ext-header > h1 > span {
+    font-size: 1rem; 
+    color: gray;
+}
+
+/* Proposito */
+p.ext-description {
+    margin-bottom: 1rem; 
+    font-size: 1rem;
+}
+
+/* Código QR */
+div.ext-qr-code {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
+    border-radius: 0.25rem;
+    min-width: 100px;
+    min-height: 100px;
+    margin: auto;
+    margin-bottom: 1.2rem;
+}
+
+/* Contenedor relativo */
+div.ext-qr-input-container {
+    position: relative;
+    display: inline-block;
+}
+
+div.ext-qr-input-container > span {
+    position: absolute;
+    top: -15px;
+    right: 10px;
+    font-size: 0.8rem;
+    color: gray;
+}
+
+/* Botones */
+div.ext-actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+/* Pie de página */
+div.ext-footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+div.ext-footer > h1 {
+    font-size: 0.5rem;
+    font-weight: bold;
+    color: gray;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+div.ext-footer > h1 > a 
+{
+    font-size: 0.5; color: gray;
 }
 
 /* Historial */
@@ -75,6 +163,7 @@ button.remove-history:hover {
     justify-content: space-between;
     align-items: center;
     margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
     border-bottom: 0.05rem solid #ccc;
 }
 
@@ -94,16 +183,74 @@ button.remove-history:hover {
 }
 
 .historial-lista li {
-    cursor: pointer;
     padding: 5px;
     border-bottom: 1px solid #ddd;
-    white-space: nowrap; /* Evita que el texto se divida en varias líneas */
-    overflow: hidden;    /* Oculta cualquier parte del texto que se desborde */
-    text-overflow: ellipsis; /* Muestra "..." al final si el texto se desborda */
+    white-space: nowrap; /* No permite saltos de línea */
+    overflow: hidden;    /* Oculta el texto que sobrepasa el ancho */
+    text-overflow: ellipsis; /* Agrega "..." cuando el texto es demasiado largo */
+    width: 312px; /* Asegúrate de que el elemento tenga un ancho fijo */
+}
+
+.historial-lista li span {
+    display: block; /* Necesario para que las reglas se apliquen correctamente */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%; /* Asegura que respete el ancho del li */
 }
 
 .historial-lista li:hover {
     background-color: #ddd;
+}
+
+.history-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 1rem;
+}
+
+.btn-actions  {
+    display: flex;
+    flex-direction: row;
+    gap: 0.55rem;
+    align-items: center;
+}
+
+.open-btn {
+    background-color: transparent;
+    border: 0;
+    padding: 0;
+    margin: 0;
+    color: #5be489;
+    font-size: 0.8rem;
+}
+
+.delete-btn {
+    background-color: transparent;
+    border: 0;
+    padding: 0;
+    margin: 0;
+    color: #e67171;
+    font-size: 0.8rem;
+}
+
+.copy-btn {
+    background-color: transparent;
+    border: 0;
+    padding: 0;
+    margin: 0;
+    color: #d9bf58;
+    font-size: 0.8rem;
+}
+
+.regenerate-btn {
+    background-color: transparent;
+    border: 0;
+    padding: 0;
+    margin: 0;
+    color: #5b9de4;
+    font-size: 0.8rem;
 }
 
 /* Estilo inicial del textarea */
@@ -111,27 +258,38 @@ button.remove-history:hover {
     padding: 10px;
     border: 2px solid #007bff;
     border-radius: 8px;
-    width: 90%;
-    height: 40px; /* Altura inicial */
-    background: #ffffff;
+    width: 300px;
+    height: 40px;
+    /*Alturainicial*/background: #ffffff;
     color: #333;
     resize: none;
     display: block;
     margin: auto;
     margin-bottom: 1rem;
-    transition: height 0.3s ease; /* Suaviza el cambio de tamaño */
+    transition: height 0.3s ease;
+    /*Suavizaelcambiodetamaño*/padding-bottom: 20px;
+    -webkit-transition: height 0.3s ease;
+    -moz-transition: height 0.3s ease;
+    -ms-transition: height 0.3s ease;
+    -o-transition: height 0.3s ease;
 }
 
 /* Cuando el textarea está en foco */
 #qr-input:focus {
-    height: 90px; /* Altura cuando está en foco */
+    height: 80px; /* Altura cuando está en foco */
     outline: none; /* Elimina el borde del foco predeterminado */
 }
 
 /* Código QR */
+div#qr-code
+{
+    width: 240px !important;
+    height: 240px !important;
+}
+
 div#qr-code img 
 {
-    width: 6rem !important;
+    width: 100% !important;
 }
 
 /* Display */
@@ -139,9 +297,25 @@ div#qr-code img
     display: none !important;
 }
 
+.d-block 
+{
+    display: block !important;
+}
+
 .d-inline-block 
 {
     display: inline-block !important;
+}
+
+.d-flex 
+{
+    display: flex !important;
+}
+
+/* Errores */
+.msg-error {
+    color: #e67171;
+    font-size: 1rem;
 }
 
 /* Dark mode */

@@ -1,74 +1,89 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Extensión para generar y compartir QR" />
-    <meta name="keywords" content="extension,edge,chrome,qr,qetransfergo">
+    <meta name="keywords" content="extension,edge,chrome,qr,qetransfergo" />
     <title>QRTransferGo</title>
 
     <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;600;900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;600;900&display=swap"
+      rel="stylesheet"
+    />
 
     <!-- Estilos -->
-    <link rel="stylesheet" href="/css/normalize.css">
-    <link rel="stylesheet" href="/css/qetransfergo.css">
-    <link rel="manifest" href="/manifest.json">
-    <link rel="shortcut icon" href="/assets/icon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/css/normalize.css" />
+    <link rel="stylesheet" href="/css/qetransfergo.css" />
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="shortcut icon" href="/assets/icon.ico" type="image/x-icon" />
 
     <title>QRTransferGo</title>
-</head>
-<body>
+  </head>
 
-    <div style="padding: 0.5rem; margin: 0 auto;">
-        <!-- Logo y título -->
-        <div style="display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 1rem;">
-            <img src="/assets/icon.png" alt="icon.png" width="64" id="img-logo">
-            <h1 style="font-size: 1.5rem; font-weight: bold; color: #007bff; margin: 0;">QRTransferGo</h1>
-        </div>
-        
-        <p id="p-description" style="margin-bottom: 1rem; font-size: 1rem;"></p>
-        
-        <!-- Código QR -->
-        <div id="qr-code" class="d-none" style="display: flex; flex-direction: row; justify-content: center; align-items: center; padding: 0.25rem; margin-bottom: 1rem; background-color: #ffffff; border-radius: 0.25rem;"></div>
+  <body>
+    <div class="ext-container">
+      <!-- Logo, título y versión -->
+      <div class="ext-header">
+        <img src="/assets/icon.png" alt="icon.png" width="64" id="img-logo" />
+        <h1>
+          QRTransferGo <span id="ext-version">v1.0.1</span>
+        </h1>
+      </div>
 
-        <!-- Campo de entrada -->
-        <textarea 
-            name="prompt" 
-            id="qr-input"
-            placeholder="Ingrese un texto, enlace (RR.SS, Video, Música, Imagen, Archivo, etc.), sin exceder los 160 caracteres"
-        ></textarea> 
-        
-        <!-- Botones -->
-        <div style="display: flex; justify-content: center; align-items: center; gap: 0.5rem; margin-bottom: 1rem;">
-            <button id="generate-qr" class="btn generate-qr">
-                Generar QR
-            </button>
-            <button id="download-qr" class="btn download-qr">
-                Descargar QR
-            </button>
-        </div>
-        
-        <!-- Historial -->
-        <div class="historial">
-            <p id="title-history">Historial</p>
-            <button id="clear-history" class="btn remove-history">Borrar historial</button>
-        </div>
-        
-        <!-- Lista de historial -->
-        <ul id="history" class="historial-lista">
-            <li>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quasi minus veritatis velit, quod quibusdam sequi rem similique sint, enim quo porro, repudiandae eius quas impedit perspiciatis cupiditate et adipisci dolorem!</li>
-            <li>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Qui, laudantium.</li>
-            <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reprehenderit earum molestias eos hic? Vero, eaque. Autem, reiciendis laudantium! Culpa laudantium tempora nostrum maxime quam dolore, dicta eligendi quos omnis ut.</li>
-            <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio dignissimos sapiente quisquam error id eum ab hic, modi fuga autem laboriosam?</li>
-            <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed accusantium quo numquam, qui, magni itaque rerum ipsa blanditiis molestiae vero omnis eligendi. Porro labore recusandae necessitatibus ipsum reiciendis nihil magni!</li>
-        </ul>
+      <!-- Proposito -->
+      <p id="p-description" class="ext-description"></p>
+
+      <!-- Código QR -->
+      <div
+        id="qr-code"
+        class="ext-qr-code d-none"
+      >
+      <canvas id="qr-canvas" width="100" height="100" style="display: none;"></canvas>
+      <img id="qr-img" src="#" width="240" height="240" style="display: block;">
+      </div>
+
+      <!-- Contenedor relativo -->
+      <div class="ext-qr-input-container">
+        <textarea
+          name="prompt"
+          id="qr-input"
+          minlength="1"
+          placeholder="Ingrese un texto, enlace (RR.SS, Video, Música, Imagen, Archivo, etc.) con 1600 caracteres recomendado"
+        ></textarea>
+        <span id="char-count">0 / 1600</span>
+      </div>
+
+      <!-- Botones -->
+      <div class="ext-actions">
+        <button id="generate-qr" class="btn generate-qr">Generar QR</button>
+        <button id="download-qr" class="btn download-qr d-none">Descargar QR</button>
+      </div>
+
+      <!-- Historial -->
+      <div class="historial">
+        <p id="title-history">Historial</p>
+        <button id="clear-history" class="remove-history-btn">
+          Borrar historial
+        </button>
+      </div>
+
+      <!-- Lista de historial -->
+      <ul id="history" class="historial-lista"></ul>
+
+      <!-- Pie de página -->
+      <div class="ext-footer">
+        <h1>
+          <span id="created_by">Creado por:</span> <a href="https://github.com/maximovj" target="_blank" rel="noopener noreferrer">Víctor J.</a>
+        </h1>
+      </div>
     </div>
 
-    <script src="/js/qrcode.min.js"></script>
+    <script src="/js/qrious.min.js"></script>
+    <script src="/js/content.js"></script>
     <script src="/js/popup.js"></script>
-
-</body>
+  </body>
 </html>
