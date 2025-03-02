@@ -106,7 +106,7 @@ function loadHistory() {
       const actions = document.createElement("div");
       actions.classList.add("btn-actions");
 
-      // Botón de abrir debajo
+      // Botón para abrir un elemento (debajo del span)
       const openBtn = document.createElement("button");
       openBtn.textContent = chrome.i18n.getMessage("open_btn");
       openBtn.classList.add("open-btn");
@@ -119,9 +119,9 @@ function loadHistory() {
           countCharacters();
         }
       });
-      actions.appendChild(openBtn);
+      actions.appendChild(openBtn); // agregar dentro del div
 
-      // Botón de copiar debajo
+      // Botón para copiar un elemento (debajo del span)
       const copyBtn = document.createElement("button");
       copyBtn.textContent = chrome.i18n.getMessage("copy_btn");
       copyBtn.classList.add("copy-btn");
@@ -129,9 +129,9 @@ function loadHistory() {
         event.stopPropagation(); // Evita que el click seleccione el ítem
         copyHistoryItem(item);
       });
-      actions.appendChild(copyBtn);
+      actions.appendChild(copyBtn); // agregar dentro del div
 
-      // Botón de generar QR debajo
+      // Botón para eliminar volver a un generar QR (debajo del span)
       const regenerateBtn = document.createElement("button");
       regenerateBtn.textContent = chrome.i18n.getMessage("generate_qr");
       regenerateBtn.classList.add("regenerate-btn");
@@ -140,9 +140,9 @@ function loadHistory() {
         document.getElementById("qr-input").value = item;
         generateQRCode(item);
       });
-      actions.appendChild(regenerateBtn);
+      actions.appendChild(regenerateBtn); // agregar dentro del div
 
-      // Botón de eliminación debajo
+      // Botón para eliminar un elemento (debajo del span)
       const deleteBtn = document.createElement("button");
       deleteBtn.textContent = chrome.i18n.getMessage("delete_qr");
       deleteBtn.classList.add("delete-btn");
@@ -150,7 +150,7 @@ function loadHistory() {
         event.stopPropagation(); // Evita que el click seleccione el ítem
         removeHistoryItem(index);
       });
-      actions.appendChild(deleteBtn);
+      actions.appendChild(deleteBtn); // agregar dentro del div
 
       // Contenedor para organizar los elementos en columna
       const wrapper = document.createElement("div");

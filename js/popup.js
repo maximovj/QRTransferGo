@@ -8,26 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
       chrome.storage.local.remove("qrData");
     }
   });
-});
 
-document.getElementById("generate-qr").addEventListener("click", () => {
-  const inputText = document.getElementById("qr-input").value;
-  if (inputText) {
-    generateQRCode(inputText);
-  } else {
-    alert(chrome.i18n.getMessage("error_1"));
-  }
-});
-
-document.getElementById("clear-history").addEventListener("click", () => {
-  chrome.storage.local.remove("history", () => loadHistory());
-});
-
-document.getElementById("download-qr").addEventListener("click", () => {
-  downloadQRCode();
-});
-
-document.addEventListener("DOMContentLoaded", () => {
   const appName = chrome.i18n.getMessage("ext_name"); // Obtiene "QRTransferGo"
   const description = chrome.i18n.getMessage("p_description", appName); // Reemplaza {app_name} con el nombre real
 
@@ -51,4 +32,21 @@ document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("created_by").innerHTML = chrome.i18n.getMessage("created_by");
   
   document.getElementById("qr-input").addEventListener("input", () => { countCharacters(); });
+});
+
+document.getElementById("generate-qr").addEventListener("click", () => {
+  const inputText = document.getElementById("qr-input").value;
+  if (inputText) {
+    generateQRCode(inputText);
+  } else {
+    alert(chrome.i18n.getMessage("error_1"));
+  }
+});
+
+document.getElementById("clear-history").addEventListener("click", () => {
+  chrome.storage.local.remove("history", () => loadHistory());
+});
+
+document.getElementById("download-qr").addEventListener("click", () => {
+  downloadQRCode();
 });
