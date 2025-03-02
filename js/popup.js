@@ -5,7 +5,6 @@ document.addEventListener("DOMContentLoaded", () => {
     if (data.qrData) {
       document.getElementById("qr-input").value = data.qrData;
       generateQRCode(data.qrData);
-      saveToHistory(data.qrData);
       chrome.storage.local.remove("qrData");
     }
   });
@@ -15,7 +14,6 @@ document.getElementById("generate-qr").addEventListener("click", () => {
   const inputText = document.getElementById("qr-input").value;
   if (inputText) {
     generateQRCode(inputText);
-    saveToHistory(inputText);
   } else {
     alert(chrome.i18n.getMessage("error_1"));
   }
@@ -29,75 +27,6 @@ document.getElementById("download-qr").addEventListener("click", () => {
   downloadQRCode();
 });
 
-// Función para generar código QR
-function generateQRCode(text) {
-  try {
-    const qr = new QRious({
-      element: document.getElementById("qr-canvas"),
-      size: 1024,
-      value: text,
-    });
-    document.getElementById("qr-code").classList.remove("d-none");
-    document.getElementById("download-qr").classList.remove("d-none");
-    document.getElementById("qr-code").classList.add("d-flex");
-    document.getElementById("download-qr").classList.add("d-block");
-    document.getElementById("qr-img").src = qr.toDataURL();
-    saveToHistory(text);
-  } catch (error) {
-    document.getElementById("qr-code").innerHTML =
-      chrome.i18n.getMessage("error_2");
-    document.getElementById("qr-code").classList.add("d-flex");
-    document.getElementById("qr-code").classList.add("msg-error");
-  }
-
-  setTimeout(() => {
-    document.getElementById("download-qr").disabled = false;
-  }, 500);
-}
-
-// Función para descargar QR como imagen
-function downloadQRCode() {
-  const qrCanvas = document.querySelector("#qr-code canvas");
-  if (!qrCanvas) return alert(chrome.i18n.getMessage("error_3"));
-  
-  const qrImage = qrCanvas.toDataURL("image/png");
-  const link = document.createElement("a");
-  link.href = qrImage;
-  link.download = "QRTransferGo_QR-Code.png";
-  link.click();
-}
-
-// Función para guardar en historial
-function saveToHistory(text) {
-  chrome.storage.local.get({ history: [] }, function (data) {
-    let history = data.history;
-    if (!history.includes(text)) {
-      history.unshift(text);
-      if (history.length > 10) history.pop();
-      chrome.storage.local.set({ history: history }, loadHistory);
-    }
-  });
-}
-
-// Función para cargar historial
-function loadHistory() {
-  chrome.storage.local.get({ history: [] }, function (data) {
-    const historyContainer = document.getElementById("history");
-    historyContainer.innerHTML = "";
-    data.history.forEach(item => {
-      const li = document.createElement("li");
-      li.classList.add("history-item");
-      li.textContent = item;
-      li.title = chrome.i18n.getMessage("li_title");
-      li.addEventListener("click", () => {
-        document.getElementById("qr-input").value = item;
-        generateQRCode(item);
-      });
-      historyContainer.appendChild(li);
-    });
-  });
-}
-
 document.addEventListener("DOMContentLoaded", () => {
   const appName = chrome.i18n.getMessage("ext_name"); // Obtiene "QRTransferGo"
   const description = chrome.i18n.getMessage("p_description", appName); // Reemplaza {app_name} con el nombre real
@@ -107,6 +36,8 @@ document.addEventListener("DOMContentLoaded", () => {
     `<span style="color: #555;">${appName}</span>`
   );
   
+  document.getElementById("ext-version").innerHTML = chrome.i18n.getMessage("ext_version");
+
   document.getElementById("qr-input").setAttribute('placeholder', chrome.i18n.getMessage("qr_input"));
 
   document.getElementById("generate-qr").innerHTML = chrome.i18n.getMessage("generate_qr");
@@ -116,4 +47,8 @@ document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("clear-history").innerHTML = chrome.i18n.getMessage("clear_history");
   
   document.getElementById("title-history").innerHTML = chrome.i18n.getMessage("title_history");
+  
+  document.getElementById("created_by").innerHTML = chrome.i18n.getMessage("created_by");
+  
+  document.getElementById("qr-input").addEventListener("input", () => { countCharacters(); });
 });
