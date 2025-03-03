@@ -29,7 +29,7 @@ chrome.contextMenus.onClicked.addListener((info, tab) => {
     const words = text.split(/\s+/);
 
     // Verificar si hay al menos 3 palabras al principio y 3 al final
-    if (words.length >= 6) {
+    if (words.length > 24) {
       // Obtener las primeras 3 palabras y las últimas 3 palabras
       const firstWords = encodeURIComponent(words.slice(0, 3).join(" "));
       const lastWords = encodeURIComponent(words.slice(-3).join(" "));
