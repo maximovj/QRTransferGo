@@ -1,4 +1,7 @@
 {
+  "ext_version": {
+    "message": "v1.6.2"
+  },
   "ext_name": {
     "message": "QRTransferGo (Dev)"
   },
@@ -9,10 +12,13 @@
     "message": "Share information quickly with {app_name} using a QR code."
   },
   "qr_input": {
-    "message": "Enter text, link (social media, video, music, image, file, etc.), not exceeding 160 characters"
+    "message": "Enter a text, link (Social Media, Video, Music, Image, File, etc.) with a recommended 1600 characters"
   },
   "generate_qr": {
     "message": "Generate QR"
+  },
+  "delete_qr": {
+    "message": "Delete"
   },
   "download_qr": {
     "message": "Download QR"
@@ -26,8 +32,17 @@
   "li_title": {
     "message": "Click to generate QR code"
   },
+  "open_btn": {
+    "message": "Open"
+  },
+  "copy_btn": {
+    "message": "Copy"
+  },
   "share_by_qr": {
     "message": "Share via QR (Dev)"
+  },
+  "created_by": {
+    "message": "Created by:"
   },
   "notification_1": {
     "message": "Generate and share multimedia via QR codes. Thank you for using the extension."
