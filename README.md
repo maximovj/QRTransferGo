@@ -20,12 +20,10 @@ Al enfocarse en este único propósito, la extensión garantiza una experiencia 
 
 # Vista Previas
 
-![preview_00.jpg](/screenshots/preview_00.jpg)
+![preview_01.png](/screenshots/preview_01.png)
 
-![preview_01.jpg](/screenshots/preview_01.jpg)
+![preview_02.png](/screenshots/preview_02.png)
 
-![preview_02.jpg](/screenshots/preview_02.jpg)
+![preview_03.png](/screenshots/preview_03.png)
 
-![preview_03.jpg](/screenshots/preview_03.jpg)
-
-![preview_04.jpg](/screenshots/preview_04.jpg)
+![preview_04.png](/screenshots/preview_04.png)

@@ -1,9 +1,9 @@
 {
   "manifest_version": 3,
   "name": "__MSG_ext_name__",
-  "version": "1.0",
+  "version": "1.6.3",
   "description": "__MSG_ext_description__",
-  "permissions": ["contextMenus", "storage", "tabs", "activeTab", "scripting", "notifications"],
+  "permissions": ["contextMenus", "storage", "tabs", "activeTab", "clipboardRead", "clipboardWrite", "scripting", "notifications"],
   "host_permissions": ["https://*/*"],
   "content_scripts": [
     {
