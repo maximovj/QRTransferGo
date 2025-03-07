@@ -1,9 +1,9 @@
 {
   "ext_version": {
-    "message": "v1.6.3"
+    "message": "v1.6.4"
   },
   "ext_name": {
-    "message": "QRTransferGo (Dev)"
+    "message": "QRTransferGo"
   },
   "ext_description": {
     "message": "Extensión para generar y compartir multimedia mediante códigos QR"
@@ -39,7 +39,7 @@
     "message": "Copiar"
   },
   "share_by_qr": {
-    "message": "Compartir mediante QR (Dev)"
+    "message": "Compartir mediante QR"
   },
   "created_by": {
     "message": "Creado por:"
