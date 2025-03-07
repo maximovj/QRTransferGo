@@ -10,13 +10,17 @@ Al enfocarse en este único propósito, la extensión garantiza una experiencia 
 
 [Leer las politicas de privacidad](/privacy-policy.md)
 
-# Como usarlo
+# Cómo usarlo
 
-- Ingrese un texto, enlace (RR.SS, Video, Música, Imagen, Archivo, etc.), sin exceder los 160 caracteres
+- Ingrese un texto o enlace (RR.SS, video, música, imagen, archivo, etc.), con un máximo recomendado de 1,600 caracteres.  
 
-- Haz clic para generar código QR
+- Haz clic para generar el código QR.  
 
-- Después puedes escanear o descargar el código QR
+- Luego, puedes descargar el código QR.  
+
+- Desde el historial, puedes abrir el enlace, copiar el contenido, volver a generar el código QR o eliminarlo del historial.  
+
+- Finalmente, puedes borrar todo el historial.  
 
 # Vista Previas
 
