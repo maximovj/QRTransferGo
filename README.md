@@ -6,6 +6,10 @@ Esta herramienta está diseñada para facilitar el intercambio de información d
 
 Al enfocarse en este único propósito, la extensión garantiza una experiencia de usuario intuitiva y sin complicaciones, sin recopilar ni almacenar datos personales, lo que asegura la privacidad y seguridad de los usuarios.
 
+[Descargar para Edge](https://microsoftedge.microsoft.com/addons/detail/qrtransfergo/bnbhbdcohgkecodmdmgcpaiiokgapkmk)
+
+[Descargar para Chrome](https://chromewebstore.google.com/detail/qrtransfergo/coiamgogahdkonenfpckpkmjimjpcbcn)
+
 [Leer justificación de permisos sobre el manifiesto](/justification-permission-manifest.md)
 
 [Leer las politicas de privacidad](/privacy-policy.md)
@@ -20,7 +24,9 @@ Al enfocarse en este único propósito, la extensión garantiza una experiencia 
 
 - Desde el historial, puedes abrir el enlace, copiar el contenido, volver a generar el código QR o eliminarlo del historial.  
 
-- Finalmente, puedes borrar todo el historial.  
+- Finalmente, puedes borrar todo el historial.
+
+https://github.com/user-attachments/assets/9e4a54cf-91d3-4c6c-93e9-a5b967184929
 
 # Vista Previas
 
